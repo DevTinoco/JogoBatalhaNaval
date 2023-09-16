@@ -20,7 +20,7 @@ public class Jogador {
         try (Scanner scanner = new Scanner(System.in)) {
 			System.out.println(nome + ", posicione seus navios.");
 
-			for (int i = 0; i < 3; i++) { //posicionar 3 navios neste exemplo
+			for (int i = 0; i < 3; i++) { // Vamos posicionar 3 navios neste exemplo
 			    System.out.print("Informe a linha para o navio " + (i + 1) + ": ");
 			    int linha = scanner.nextInt();
 			    System.out.print("Informe a coluna para o navio " + (i + 1) + ": ");
@@ -57,7 +57,7 @@ public class Jogador {
     }
 
 	public void exibirTabuleiro() {
-		
+		// TODO Auto-generated method stub
 		
 	}
 }
