@@ -1,0 +1,79 @@
+package logic_program;
+
+import java.util.Scanner;
+
+
+public class JogoBatalhaNaval {
+
+	public static void main(String[] args) {
+		  int tamanhoTabuleiro = 5; // Tamanho do tabuleiro (5x5 )
+	        Tabuleiro tabuleiroJogador1 = new Tabuleiro(tamanhoTabuleiro);
+	        Tabuleiro tabuleiroJogador2 = new Tabuleiro(tamanhoTabuleiro);
+
+	        Jogador jogador1 = new Jogador("Jogador 1", tabuleiroJogador1);
+	        Jogador jogador2 = new Jogador("Jogador 2", tabuleiroJogador2);
+
+	        jogador1.posicionarNavios();
+	        jogador2.posicionarNavios();
+
+	        Scanner scanner = new Scanner(System.in);
+
+	        while (!jogador1.verificarVitoria() && !jogador2.verificarVitoria()) {
+	            System.out.println("Turno do " + jogador1.getNome() + ":");
+	            jogador1.fazerJogada(jogador2);
+
+	            if (!jogador2.verificarVitoria()) {
+	                System.out.println("Turno do " + jogador2.getNome() + ":");
+	                jogador2.fazerJogada(jogador1);
+	            }
+	        }
+
+	        if (jogador1.verificarVitoria()) {
+	            System.out.println(jogador1.getNome() + " venceu!");
+	        } else {
+	            System.out.println(jogador2.getNome() + " venceu!");
+	        }
+
+	        scanner.close();
+	    }
+	public static void main1(String[] args) {
+	    int tamanhoTabuleiro = 5; // Tamanho do tabuleiro (5x5 neste exemplo)
+	    Tabuleiro tabuleiroJogador1 = new Tabuleiro(tamanhoTabuleiro, "Jogador 1");
+	    Tabuleiro tabuleiroJogador2 = new Tabuleiro(tamanhoTabuleiro, "Jogador 2");
+
+	    Jogador jogador1 = new Jogador("Jogador 1", tabuleiroJogador1);
+	    Jogador jogador2 = new Jogador("Jogador 2", tabuleiroJogador2);
+
+	    jogador1.posicionarNavios();
+	    jogador2.posicionarNavios();
+
+	    Scanner scanner = new Scanner(System.in);
+
+	    Jogador jogadorAtual = jogador1;
+	    Jogador adversario = jogador2;
+
+	    while (!jogador1.verificarVitoria() && !jogador2.verificarVitoria()) {
+	        jogadorAtual.exibirTabuleiro();
+	        System.out.println("Turno do " + jogadorAtual.getNome() + ":");
+	        jogadorAtual.fazerJogada(adversario);
+
+	        // Troca de jogador
+	        Jogador temp = jogadorAtual;
+	        jogadorAtual = adversario;
+	        adversario = temp;
+	    }
+
+	    jogador1.exibirTabuleiro();
+	    jogador2.exibirTabuleiro();
+
+	    if (jogador1.verificarVitoria()) {
+	        System.out.println(jogador1.getNome() + " venceu!");
+	    } else {
+	        System.out.println(jogador2.getNome() + " venceu!");
+	    }
+
+	    scanner.close();
+	}
+
+	}
+

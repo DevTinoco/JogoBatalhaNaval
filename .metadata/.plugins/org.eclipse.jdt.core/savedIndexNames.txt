@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+C:\WS-EstudosRenovados\.metadata\.plugins\org.eclipse.jdt.core
+2872890695.index
+2696866651.index
+1865797976.index
